@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 
 class WorldTime{
 
@@ -35,7 +36,9 @@ class WorldTime{
       DateTime localDateTime = DateTime.parse(dateTime);
       localDateTime =  localDateTime.add(Duration(hours: int.parse(offsetHour), minutes: int.parse(offsetMin)));
       time = localDateTime.toString();
-      //print(localDateTime);
+      print('Line 1 - $time');
+      time = DateFormat.jm().format(localDateTime);
+      print('Line 2 - $time');
 
     }
     catch(e){

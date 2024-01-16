@@ -17,14 +17,21 @@ class _LoadingState extends State<Loading> {
 
   void setUpWorldTime() async{
     WorldTime worldTime = WorldTime(
-        location: 'Berlin',
-        flag: 'germany.jpg',
-        url: 'Europe/Berlin'
+        location: 'Colombo',
+        flag: 'colombo.jpg',
+        url: 'Asia/Colombo'
     );
+
     await worldTime.getTime();
     print(worldTime.time);
-    setState(() {
-      time = worldTime.time;
+    // setState(() {
+    //   time = worldTime.time;
+    // });
+    // Navigator.pushNamed(context, '/home');
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': worldTime.location,
+      'flag':  worldTime.flag,
+      'time': worldTime.time,
     });
   }
 
