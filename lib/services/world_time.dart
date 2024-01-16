@@ -8,6 +8,7 @@ class WorldTime{
   String time = ''; // time that in the location
   String flag; //URl to an assets flag icon
   String url = ''; //location url for api endpoint
+  bool isDayTime = false;
 
 
   WorldTime({required this.location, required this.flag, required  this.url});
@@ -35,8 +36,11 @@ class WorldTime{
 
       DateTime localDateTime = DateTime.parse(dateTime);
       localDateTime =  localDateTime.add(Duration(hours: int.parse(offsetHour), minutes: int.parse(offsetMin)));
-      time = localDateTime.toString();
-      print('Line 1 - $time');
+      // time = localDateTime.toString();
+      // print('Line 1 - $time');
+
+      isDayTime = (localDateTime.hour > 6 && localDateTime.hour < 18) ? true : false;
+
       time = DateFormat.jm().format(localDateTime);
       print('Line 2 - $time');
 

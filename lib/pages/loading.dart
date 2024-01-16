@@ -20,7 +20,8 @@ class _LoadingState extends State<Loading> {
     WorldTime worldTime = WorldTime(
         location: 'Colombo',
         flag: 'colombo.jpg',
-        url: 'Asia/Colombo'
+        url: 'Asia/Colombo',
+        // url: 'Europe/Berlin',
     );
 
     await worldTime.getTime();
@@ -37,6 +38,7 @@ class _LoadingState extends State<Loading> {
       'location': worldTime.location,
       'flag':  worldTime.flag,
       'time': worldTime.time,
+      'isDayTime': worldTime.isDayTime,
     });
   }
 
@@ -51,7 +53,7 @@ class _LoadingState extends State<Loading> {
   Widget build(BuildContext context) {
     return  const Scaffold(
       body: Center(
-        child: SpinKitWaveSpinner(
+        child: SpinKitFadingCube(
           color: Colors.blue,
           size: 80.0,
         ),
