@@ -99,7 +99,7 @@ class _HomeState extends State<Home> {
                         label: Text(
                           'Quote',
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 25,
                             color: Colors.deepOrange[200],
                           ),
                         ),
@@ -110,12 +110,12 @@ class _HomeState extends State<Home> {
                       ),
                       TextButton.icon(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/quote');
+                          Navigator.pushNamed(context, '/stark');
                         },
                         label: Text(
-                          'ID Card',
+                          'Stark Card',
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 25,
                             color: Colors.deepOrange[200],
                           ),
                         ),
