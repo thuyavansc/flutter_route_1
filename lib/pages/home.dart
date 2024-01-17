@@ -88,6 +88,43 @@ class _HomeState extends State<Home> {
                       fontSize: 80,
                     ),
                   ),
+                  const SizedBox(height: 300,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      TextButton.icon(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/quote');
+                        },
+                        label: Text(
+                          'Quote',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.deepOrange[200],
+                          ),
+                        ),
+                        icon: const Icon(
+                          Icons.adb_rounded,
+                          color: Colors.lightBlueAccent,
+                        ),
+                      ),
+                      TextButton.icon(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/quote');
+                        },
+                        label: Text(
+                          'ID Card',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.deepOrange[200],
+                          ),
+                        ),
+                        icon: const Icon(
+                          Icons.add_card_rounded,
+                          color: Colors.lightBlueAccent,),
+                      ),
+                    ],
+                  )
                 ],
                   ),
             ),
