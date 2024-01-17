@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     
     // data = ModalRoute.of(context).settings.arguments;
-    data = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    data = (data?.isNotEmpty ?? false) ? data! : ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
 
     if (data != null) {
       print('At Home:- $data');
@@ -44,14 +44,24 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: <Widget> [
                   TextButton.icon(
-                    onPressed: () {
-                      Navigator.pushNamed(context,'/location');
+                    onPressed: () async {
+                     dynamic result =  await Navigator.pushNamed(context,'/location');
+                     setState(() {
+                       data = {
+                         'time': result['time'],
+                         'location': result['location'],
+                         'isDayTime': result['isDayTime'],
+                         'flag': result['flag'],
+                       };
+                     });
                     },
                     icon: const Icon(Icons.edit_location),
                     label: const Text(
                       'Edit Location',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.lightBlueAccent,
                       ),
                     ),
                   ),
@@ -63,7 +73,7 @@ class _HomeState extends State<Home> {
                         data?['location'],
                         style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 25,
                           letterSpacing: 2,
                         ),
                       ),
